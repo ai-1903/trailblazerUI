@@ -66,7 +66,7 @@
 
 .tb-progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #30d158, #34c759);
+  background-color: var(--adt-colorBoard-Green);
   border-radius: 10px;
   transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 0 10px rgba(52, 199, 89, 0.4);
@@ -273,14 +273,14 @@
 
 .tb-plan-card.active {
   border-color: transparent;
-  background: var(--color-blue, #007AFF);
-  color: #fff;
-  box-shadow: 0 12px 24px rgba(var(--color-blue-rgb, 0 122 255), 0.3);
+  background: rgba(var(--adt-colorBoard-Label) / 1);
+  color: rgba(var(--adt-colorBoard-buttonLabel) / 1);
+  box-shadow: 0 12px 24px rgba(var(--adt-colorBoard-buttonLabel) / var(--adt-colorAlpha-24));
   transform: translateY(-4px);
 }
 
 .tb-plan-card.active p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(var(--adt-colorBoard-buttonLabel) / var(--adt-colorAlpha-80));
 }
 
 .tb-plan-card h4 {
