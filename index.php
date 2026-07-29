@@ -63,6 +63,16 @@
         .demo-footer a:hover {
             text-decoration: underline;
         }
+
+        .demo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tb-pill {
+            color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));
+        }
     </style>
     <script>
         (function() {
@@ -86,6 +96,7 @@
         </button>
     </div>
 
+    <div class="demo-content">
     <?php
     /**
      * trailblazerUI Demo — 开箱即用
@@ -96,6 +107,7 @@
      */
     include __DIR__ . '/func/connector.php';
     ?>
+    </div>
 
     <footer class="demo-footer">
         <p>trailblazerUI · <a href="https://icerya.com">iCerya</a> · Apple Public Source License 2.0</p>
