@@ -358,7 +358,7 @@ a.tb-ticket,
   align-items: center;
   padding-left: 20px;
   border-radius: 18px 18px 0 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 .tb-ticket-banner-icon {
@@ -604,7 +604,7 @@ a.tb-ticket,
   }
 
   .tb-ticket-left {
-    padding: 32px 20px 20px;
+    padding: 52px 20px 20px;
   }
 
   .tb-ticket-right {
@@ -632,7 +632,7 @@ a.tb-ticket,
   }
 
   .tb-ticket-banner-icon {
-    height: 12px;
+    height: 24px;
   }
 }
 
