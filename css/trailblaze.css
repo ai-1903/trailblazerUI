@@ -16,6 +16,10 @@
  * limitations under the License.
  */
 
+iconify-icon {
+  vertical-align: -0.125em;
+}
+
 .tb-page-wrapper {
   margin-top: calc(var(--nav-height, 0px) + 60px);
 }
@@ -344,15 +348,15 @@ a.tb-ticket,
   top: 0;
   left: 0;
   right: 0;
-  height: 20px;
+  height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding-left: 20px;
   border-radius: 16px 16px 0 0;
 }
 
 .tb-ticket-banner-icon {
-  height: 14px;
+  height: 24px;
   width: auto;
   opacity: 0.9;
 }
