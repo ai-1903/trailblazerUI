@@ -1,0 +1,264 @@
+/*
+ * Copyright (c) 2026 iCerya (icerya.com). All Rights Reserved.
+ *
+ * This file contains Original Code and/or Modifications of Original Code
+ * as defined in and that are subject to the Apple Public Source License
+ * Version 2.0 (the 'License'). You may not use this file except in
+ * compliance with the License. Please obtain a copy of the License at
+ * http://www.opensource.apple.com/apsl/ and read it before using this file.
+ *
+ * The Original Code and all software distributed under the License are
+ * distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, EITHER
+ * EXPRESS OR IMPLIED, AND ICERYA HEREBY DISCLAIMS ALL SUCH WARRANTIES,
+ * INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT OR NON-INFRINGEMENT.
+ * Please see the License for the specific language governing rights and
+ * limitations under the License.
+ */
+
+@keyframes masked-animation {
+    0% {
+        background-position: 0 -100%;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+
+.super-theme-title
+
+/*超级主题标题（span 标签标注法）*/
+    {
+    font-size: 45px;
+    font-weight: lighter;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-image: -webkit-linear-gradient(0deg, #77F1FD, #FFB7ED, #77F1FD, #FFB7ED, #77F1FD);
+    background-image: -o-linear-gradient(0deg, #77F1FD, #FFB7ED, #77F1FD, #FFB7ED, #77F1FD);
+    background-image: -ms-linear-gradient(0deg, #77F1FD, #FFB7ED, #77F1FD, #FFB7ED, #77F1FD);
+    -webkit-text-fill-color: rgba(0, 0, 0, 0.05);
+    -webkit-background-clip: text;
+    background-size: 200% 100%;
+    -webkit-animation: masked-animation 3s infinite linear;
+    animation: masked-animation 3s infinite linear;
+    transition: 0.3s;
+}
+
+.super-theme
+
+/*超级主题（span 标签标注法）*/
+    {
+    font-weight: bolder;
+    background-image: -webkit-linear-gradient(0deg, #77F1FD, #FFB7ED, #77F1FD, #FFB7ED, #77F1FD);
+    background-image: -o-linear-gradient(0deg, #77F1FD, #FFB7ED, #77F1FD, #FFB7ED, #77F1FD);
+    background-image: -ms-linear-gradient(0deg, #77F1FD, #FFB7ED, #77F1FD, #FFB7ED, #77F1FD);
+    -webkit-text-fill-color: rgba(0, 0, 0, 0.05);
+    -webkit-background-clip: text;
+    background-size: 200% 100%;
+    -webkit-animation: masked-animation 3s infinite linear;
+    animation: masked-animation 3s infinite linear;
+    transition: 0.3s;
+}
+
+[data-block*="113"] {
+    backdrop-filter: saturate(180%) blur(32px);
+    webkit-backdrop-filter: saturate(180%) blur(32px);
+}
+
+/*
+#header [data-row] {
+    backdrop-filter: saturate(180%) blur(23px);
+    -webkit-backdrop-filter: saturate(180%) blur(23px);
+}
+*/
+
+.ct-shortcuts-bar-items {
+    backdrop-filter: saturate(180%) blur(23px);
+    -webkit-backdrop-filter: saturate(180%) blur(23px);
+}
+
+.ct-header [data-sticky*="yes"] [data-row*="middle"] {
+    backdrop-filter: saturate(180%) blur(23px);
+    -webkit-backdrop-filter: saturate(180%) blur(23px);
+}
+
+.aplayer.aplayer-fixed .aplayer-body {
+    margin-bottom: 120px;
+}
+
+@media (max-width: 800px) {
+
+    .aplayer,
+    .aplayer .aplayer-body {
+        width: 66px !important;
+        border: 0;
+    }
+
+    .aplayer-body {
+        border: 0;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-miniswitcher {
+        display: none;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-body {
+        width: 66px !important;
+    }
+}
+
+
+/* ========== Scrollbar (WebKit / Chromium / Opera / Safari / Edge) ========== */
+
+/* 滚动条整体尺寸 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+}
+
+/* 滚动槽（滑槽背景） */
+::-webkit-scrollbar-track-piece {
+    background-color: var(--theme-palette-color-48);
+    /* 滑槽颜色 */
+    border-radius: 0;
+}
+
+/* 滚动条滑块（默认） */
+::-webkit-scrollbar-thumb {
+    background-color: var(--theme-palette-color-53);
+    /* 滑块颜色 */
+    min-height: 50px;
+    outline: 0 solid transparent;
+    outline-offset: -2px;
+    border-radius: 0;
+    border: 2px solid transparent;
+    transition: background-color 0.4s ease;
+}
+
+/* 滚动条滑块（hover） */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--theme-palette-color-22);
+    /* hover 颜色 */
+}
+
+/* ========== Scrollbar (Firefox) ========== */
+
+* {
+    scrollbar-width: thin;
+    /* auto | thin | none */
+    scrollbar-color:
+        var(--theme-palette-color-53)
+        /* 滑块 */
+        var(--theme-palette-color-48);
+    /* 滑槽 */
+}
+
+/* ========== IE (不推荐，仅兜底) ========== */
+
+body {
+    scrollbar-face-color: var(--theme-palette-color-53);
+    scrollbar-track-color: var(--theme-palette-color-48);
+}
+
+
+/*部分 WP 自定义修改失效的内容：
+ * 1. 侧边栏宽度
+ * 2. Cookie 取消按钮颜色无法变更
+ * 3. 分割线颜色
+ * 4. 表格颜色
+ * */
+
+/* 侧边栏宽度 */
+/*[data-sidebar="right"] {
+    --grid-template-columns: minmax(100px, 1fr) var(--sidebar-width, 24%);
+}
+
+[data-sidebar="left"] {
+    --sidebar-order: -1;
+    --grid-template-columns: var(--sidebar-width, 24%) minmax(100px, 1fr);
+}*/
+
+/* 取消按钮强制修复 */
+.cookie-notification .ct-cookies-decline-button {
+    --theme-button-text-initial-color: var(--theme-palette-color-54);
+    --theme-button-text-hover-color: var(--theme-palette-color-58);
+    --theme-button-background-initial-color: var(--theme-palette-color-47);
+    --theme-button-background-hover-color: var(--theme-palette-color-48);
+}
+
+
+/* 表格颜色 */
+hr {
+    background-color: var(--theme-palette-color-15);
+}
+
+.wp-block-table table:not(.has-border-color) thead,
+.wp-block-table table:not(.has-border-color) tfoot,
+.wp-block-table table:not(.has-border-color) td,
+.wp-block-table table:not(.has-border-color) th {
+    border-color: var(--theme-palette-color-15);
+}
+
+
+/*自定义行内代码*/
+pre,
+code,
+samp,
+kbd {
+    border-radius: 5px;
+    background: var(--mtKit-codeColor-bg, var(--theme-palette-color-62));
+    color: var(--mtKit-codeColor-text, var(--theme-palette-color-1));
+}
+
+code,
+kbd,
+samp {
+    padding: 3px 8px;
+}
+
+.limit-750 {
+    width: 100%;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ .cookie-notification[data-type=type-1] .container {
+    background: var(--theme-palette-color-9) !important;
+    border-top: 0.5px solid var(--theme-palette-color-10) !important;
+    backdrop-filter: saturate(180%) blur(23px) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(23px) !important;
+}
+
+@media (max-width: 689.98px) {
+    .cookie-notification[data-type=type-1] {
+        background: var(--theme-palette-color-9) !important;
+        border-top: 0.5px solid var(--theme-palette-color-10) !important;
+        backdrop-filter: saturate(180%) blur(23px) !important;
+        -webkit-backdrop-filter: saturate(180%) blur(23px) !important;
+    }
+}
+
+@media (min-width: 690px) {
+    .cookie-notification[data-type=type-1] .container {
+        border-radius:24px !important ;
+        background: var(--theme-palette-color-9) !important;
+        border: 0.5px solid var(--theme-palette-color-10) !important;
+    }
+}
+
+.ct-cookies-content {
+    color: var(--theme-palette-color-22);
+}
+
+/* 页脚开启链接下划线 */
+footer a {
+    text-decoration: none !important;
+}
+
+footer a:hover {
+    text-decoration: underline !important;
+}

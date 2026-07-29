@@ -1,0 +1,26 @@
+{
+  "stats": {
+    "cities": 13,
+    "countries": 1,
+    "distance": "23,500"
+  },
+  "unlockedCities": [
+    "黑龙江 哈尔滨", "上海市", "重庆市", "天津滨海", "四川成都", "海南海口", "海南三亚", "海南三沙", "福建厦门", "浙江杭州", "陕西西安", "宁夏银川"
+  ],
+  "nextDestinations": {
+    "cover": "/img/trailblaze/next-cover.jpg",
+    "tag": "大地纪行",
+    "plans": [
+      {
+        "country": "中国香港",
+        "cities": "错位 · 金融中心",
+        "isActive": false
+      },
+      {
+        "country": "美国 加利福尼亚库比蒂诺",
+        "cities": "Apple Park 🌈",
+        "isActive": false
+      }
+    ]
+  }
+}

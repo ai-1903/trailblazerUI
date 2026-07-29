@@ -1,0 +1,264 @@
+/*
+ * Copyright (c) 2026 iCerya (icerya.com). All Rights Reserved.
+ *
+ * This file contains Original Code and/or Modifications of Original Code
+ * as defined in and that are subject to the Apple Public Source License
+ * Version 2.0 (the 'License'). You may not use this file except in
+ * compliance with the License. Please obtain a copy of the License at
+ * http://www.opensource.apple.com/apsl/ and read it before using this file.
+ *
+ * The Original Code and all software distributed under the License are
+ * distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, EITHER
+ * EXPRESS OR IMPLIED, AND ICERYA HEREBY DISCLAIMS ALL SUCH WARRANTIES,
+ * INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT OR NON-INFRINGEMENT.
+ * Please see the License for the specific language governing rights and
+ * limitations under the License.
+ */
+
+/* =========================================
+   开拓之旅 Trailblaze 专属苹果美学
+   依赖: css/color-board.css（提供 --adt-colorBoard-* / --adt-colorAlpha-* 变量）
+========================================= */
+
+.tb-page-wrapper {
+  margin-top: calc(var(--nav-height, 0px) + 60px);
+}
+
+/* --- Hero 区域：极致字重与留白 --- */
+.tb-hero {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.tb-title {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0 0 50px 0;
+  letter-spacing: -0.04em;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));
+}
+
+.tb-progress-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.tb-progress-label {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* iOS 容量/健身环 风格的高级进度条 */
+.tb-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.tb-progress-bar-bg {
+  flex: 1;
+  height: 16px;
+  background: rgba(128, 128, 128, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); /* 内阴影质感 */
+}
+
+.tb-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #30d158, #34c759); /* 果味绿渐变 */
+  border-radius: 10px;
+  transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 10px rgba(52, 199, 89, 0.4);
+}
+
+.tb-progress-percent {
+  font-family: "SF Mono", monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));
+}
+
+.tb-progress-desc {
+  font-size: 14px;
+  color: var(--text-secondary, rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50)));
+  margin: 0;
+}
+
+/* --- iOS 模块化大卡片 --- */
+.tb-dashboard-card {
+  background: var(--card-bg, rgba(var(--adt-colorBoard-White) / var(--adt-colorAlpha-71)));
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 32px; /* 超大圆角 */
+  display: flex;
+  gap: 50px;
+  padding: 50px;
+  margin-bottom: 80px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08); /* 悬浮大阴影 */
+}
+
+.tb-dash-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 果味"灵动岛"式胶囊 */
+.tb-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(var(--adt-colorBoard-buttonLabel) / var(--adt-colorAlpha-100));
+  color: rgba(var(--adt-colorBoard-White) / var(--adt-colorAlpha-100));
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  width: fit-content;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.tb-pill .sub-text { opacity: 0.7; margin-left: 8px; font-weight: 500; }
+
+.tb-stats-group {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));
+}
+
+.tb-stat-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.tb-num { font-size: 64px; font-weight: 900; line-height: 0.9; letter-spacing: -2px; }
+.tb-unit { font-size: 18px; font-weight: 600; color: var(--text-secondary, rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50))); }
+.tb-desc { font-size: 16px; color: var(--text-secondary, rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50))); margin-left: 10px; }
+
+.tb-distance-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(var(--adt-colorBoard-Blue) / var(--adt-colorAlpha-7)); /* 调用刚才补充的 customColor 蓝色！ */
+  color: rgba(var(--adt-colorBoard-Blue) / var(--adt-colorAlpha-100));
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+/* 解锁城市区块 */
+.tb-unlocked-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary, rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50)));
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.tb-city-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.city-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(128, 128, 128, 0.08);
+  padding: 8px 16px;
+  border-radius: 12px; /* iOS 按键式的圆角方块 */
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));
+  transition: transform 0.2s, background 0.2s;
+}
+.city-pill:hover { transform: scale(1.03); background: rgba(128, 128, 128, 0.15); }
+
+/* 右侧排版 */
+.tb-dash-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tb-next-cover {
+  width: 100%;
+  height: 260px;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.tb-next-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.tb-next-cover:hover img { transform: scale(1.05); }
+
+.tb-next-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.tb-next-title { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 12px; }
+.next-badge { background: rgba(var(--adt-colorBoard-buttonLabel) / var(--adt-colorAlpha-100)); color: rgba(var(--adt-colorBoard-White) / var(--adt-colorAlpha-100)); font-size: 12px; padding: 4px 12px; border-radius: 12px; font-weight: 700; text-transform: uppercase; }
+
+/* 计划地卡片 */
+.tb-plans-grid {
+  display: flex;
+  gap: 16px;
+}
+
+.tb-plan-card {
+  flex: 1;
+  border: 1px solid rgba(128, 128, 128, 0.15);
+  border-radius: 20px;
+  padding: 24px;
+  background: rgba(128, 128, 128, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 高亮选中态使用 iOS 系统蓝 */
+.tb-plan-card.active {
+  border-color: transparent;
+  background: var(--color-blue, #007AFF);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(var(--color-blue-rgb, 0 122 255), 0.3);
+  transform: translateY(-4px);
+}
+.tb-plan-card.active p { color: rgba(255,255,255,0.8); }
+
+.tb-plan-card h4 { margin: 0 0 8px 0; font-size: 20px; font-weight: 800; }
+.tb-plan-card p { margin: 0; font-size: 14px; color: var(--text-secondary, rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50))); line-height: 1.5; }
+
+/* --- 底部文章区块标题 --- */
+.tb-section-title {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 0;
+  letter-spacing: -0.5px;
+}
+
+/* --- 移动端神级重排 --- */
+@media (max-width: 850px) {
+  .tb-title { font-size: 32px; }
+  .tb-dashboard-card { flex-direction: column; color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));padding: 30px 20px; gap: 40px; border-radius: 24px; }
+  .tb-plans-grid { flex-direction: column; }
+  .tb-num { font-size: 48px; }
+}
