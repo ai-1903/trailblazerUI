@@ -333,7 +333,7 @@ a.tb-ticket,
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(128, 128, 128, 0.15);
   border-radius: 18px;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   min-height: 240px;
@@ -537,6 +537,11 @@ a.tb-ticket,
   z-index: 1;
 }
 
+.tb-ticket-right > * {
+  position: relative;
+  z-index: 1;
+}
+
 .tb-ticket-right::before {
   content: '';
   position: absolute;
@@ -544,9 +549,12 @@ a.tb-ticket,
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(to right, transparent 0%, rgba(128, 128, 128, 0.12) 100%), var(--ticket-bg-img, none);
+  background-image: var(--ticket-bg-img, none);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.12) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.12) 100%);
   filter: saturate(0.2);
   transition: filter 0.3s ease;
   z-index: -1;
