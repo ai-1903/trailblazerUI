@@ -400,6 +400,8 @@ a.tb-ticket,
   gap: 16px;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+  border-radius: 18px 0 0 18px;
 }
 
 .tb-ticket-route {
@@ -536,6 +538,7 @@ a.tb-ticket,
   position: relative;
   z-index: 1;
   overflow: hidden;
+  border-radius: 0 18px 18px 0;
 }
 
 .tb-ticket-right > * {
@@ -605,11 +608,13 @@ a.tb-ticket,
 
   .tb-ticket-left {
     padding: 52px 20px 20px;
+    border-radius: 18px 18px 0 0;
   }
 
   .tb-ticket-right {
     padding: 20px;
     border-top: 1px dashed rgba(128, 128, 128, 0.2);
+    border-radius: 0 0 18px 18px;
   }
 
   .tb-ticket-route {
