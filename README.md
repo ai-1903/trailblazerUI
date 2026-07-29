@@ -36,6 +36,19 @@ trailblazerUI/
 
 ---
 
+## Demo 开箱即用
+
+```bash
+cd trailblazerUI
+php -S localhost:8080
+```
+
+浏览器打开 `http://localhost:8080` 即可预览完整 Demo。
+
+Demo 入口 `index.php` 内置亮/暗模式切换、1200px 内容宽度限制，开箱零配置。
+
+---
+
 ## 快速开始
 
 ### 独立 PHP 环境
@@ -76,21 +89,21 @@ require_once get_stylesheet_directory() . '/AirDesign/trailblazerUI/func/wp_conn
 ```json
 {
   "stats": {
-    "cities": 13,
-    "countries": 1,
-    "distance": "23,500"
+    "cities": 8,
+    "countries": 3,
+    "distance": "42,180"
   },
   "unlockedCities": [
-    "黑龙江 哈尔滨", "上海市", "重庆市", "四川成都", "..."
+    "日本 东京", "韩国 首尔", "泰国 曼谷", "..."
   ],
   "nextDestinations": {
-    "cover": "/img/trailblaze/next-cover.jpg",
-    "tag": "大地纪行",
+    "cover": "/img/next-stop.png",
+    "tag": "星海征途",
     "plans": [
       {
-        "country": "中国香港",
-        "cities": "错位 · 金融中心",
-        "isActive": false
+        "country": "冰岛 雷克雅未克",
+        "cities": "极光 · 冰与火之歌",
+        "isActive": true
       }
     ]
   }
