@@ -1,2 +1,128 @@
 # trailblazerUI
-An MT Kit showcasing a personal trailblaze journey.
+
+**An MT Kit showcasing a personal trailblaze journey.**
+
+一个独立、可嵌入的 PHP UI Kit，以 Apple 设计美学呈现个人旅行足迹仪表盘。
+
+---
+
+## 特性
+
+- **🍎 Apple 美学** — 毛玻璃大卡片、灵动岛胶囊、SF Mono 数字、果味渐变进度条
+- **🌗 亮/暗双模式** — CSS 变量驱动，无缝适配系统主题
+- **📊 数据驱动** — JSON 配置文件，更新数据无需改代码
+- **🔌 即插即用** — 独立 PHP 页面只需一行 `include`，WordPress 支持短代码 `[my_trailblaze]`
+- **📱 响应式** — 850px 断点自适应移动端
+- **🪶 零框架依赖** — 仅需 PHP 7+
+
+---
+
+## 目录结构
+
+```
+trailblazerUI/
+├── css/
+│   ├── color-board.css      # 设计令牌：色板变量 + 亮/暗模式
+│   └── trailblaze.css       # 主 UI 样式
+├── func/
+│   ├── render.php           # 渲染引擎
+│   ├── connector.php        # 独立 PHP 连接器
+│   └── wp_connector.php     # WordPress 连接器
+├── data/
+│   └── trailblaze.json      # 行程数据配置
+├── README.md
+└── LICENSE
+```
+
+---
+
+## 快速开始
+
+### 独立 PHP 环境
+
+```php
+<?php include 'path/to/trailblazerUI/func/connector.php'; ?>
+```
+
+如需自定义资源路径：
+
+```php
+<?php
+define('TRAILBLAZER_BASE_URL', '/custom/assets/trailblazerUI');
+include 'path/to/trailblazerUI/func/connector.php';
+?>
+```
+
+### WordPress
+
+在子主题 `functions.php` 中添加：
+
+```php
+require_once get_stylesheet_directory() . '/AirDesign/trailblazerUI/func/wp_connector.php';
+```
+
+然后在任意页面或文章中使用短代码：
+
+```
+[my_trailblaze]
+```
+
+---
+
+## 数据配置
+
+编辑 `data/trailblaze.json` 即可更新展示内容：
+
+```json
+{
+  "stats": {
+    "cities": 13,
+    "countries": 1,
+    "distance": "23,500"
+  },
+  "unlockedCities": [
+    "黑龙江 哈尔滨", "上海市", "重庆市", "四川成都", "..."
+  ],
+  "nextDestinations": {
+    "cover": "/img/trailblaze/next-cover.jpg",
+    "tag": "大地纪行",
+    "plans": [
+      {
+        "country": "中国香港",
+        "cities": "错位 · 金融中心",
+        "isActive": false
+      }
+    ]
+  }
+}
+```
+
+| 字段 | 说明 |
+|---|---|
+| `stats.cities` | 已访问城市数 |
+| `stats.countries` | 已访问国家数 |
+| `stats.distance` | 累计里程（km） |
+| `unlockedCities` | 已解锁城市名称数组 |
+| `nextDestinations.cover` | 下一站封面图片路径 |
+| `nextDestinations.tag` | 标签文案 |
+| `nextDestinations.plans` | 计划目的地列表，`isActive: true` 高亮该卡片 |
+
+---
+
+## 深色模式
+
+自动读取 Cookie `theme`（值为 `dark` 时启用深色模式）。
+
+在 WordPress + Blocksy 主题环境下，深色模式与主题设置自动同步，无需额外配置。
+
+---
+
+## 许可
+
+Apple Public Source License 2.0 — 详见 [LICENSE](LICENSE)。
+
+---
+
+<p align="center">
+  <sub>Made with ❤️ by <a href="https://icerya.com">iCerya</a></sub>
+</p>

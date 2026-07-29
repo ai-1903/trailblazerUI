@@ -62,15 +62,7 @@ add_action('wp_enqueue_scripts', function () use ($wp_connector_base_url) {
         '2.0.0'
     );
 
-    // ---- Blocksy 专属补丁（仅 WordPress）-------------------------------
-    wp_enqueue_style(
-        'adt-core-mode',
-        $wp_connector_base_url . '/css/core-mode.css',
-        ['adt-trailblaze-style'],
-        '2.0.0'
-    );
-
-    // ---- 动态注入 Blocksy 宽度限制补丁 ---------------------------------
+    // ---- 动态注入 Blocksy 容器宽度适配补丁 -----------------------------
     $blocksy_patch = "
     .tb-page-wrapper {
         margin-top: 40px;
