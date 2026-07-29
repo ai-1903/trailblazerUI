@@ -535,6 +535,7 @@ a.tb-ticket,
   text-align: center;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .tb-ticket-right > * {
