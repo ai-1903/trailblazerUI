@@ -308,8 +308,9 @@
   margin-bottom: 80px;
 }
 
-.tb-tickets-section a {
-  text-decoration: none;
+a.tb-ticket,
+.tb-ticket a {
+  text-decoration: none !important;
 }
 
 .tb-tickets-grid {
