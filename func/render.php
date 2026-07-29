@@ -167,16 +167,16 @@ if (!function_exists('trailblazer_render_html')) {
                         <?php
                         $ticketTag = !empty($ticket['link']) ? 'a' : 'div';
                         $ticketAttr = !empty($ticket['link']) ? 'href="' . esc_url($ticket['link']) . '" target="_blank" rel="noopener"' : '';
-                        $bannerColor = !empty($ticket['color']) ? 'rgba(' . $ticket['color'] . ')' : 'rgba(128, 128, 128, 0.1)';
+                        $bannerColor = !empty($ticket['color']) ? 'rgba(' . $ticket['color'] . ')' : 'rgba(128, 128, 128, 0.07)';
+                        $ticketImg = !empty($ticket['img']) ? esc_url($ticket['img']) : '';
+                        $rightStyle = !empty($ticketImg) ? 'style="--ticket-bg-img: url(' . $ticketImg . ');"' : '';
                         ?>
                         <<?php echo $ticketTag; ?> class="tb-ticket" <?php echo $ticketAttr; ?>>
-                            <?php if (!empty($ticket['icon']) || !empty($ticket['color'])): ?>
-                                <div class="tb-ticket-banner" style="background: <?php echo $bannerColor; ?>;">
-                                    <?php if (!empty($ticket['icon'])): ?>
-                                        <img src="<?php echo esc_url($ticket['icon']); ?>" alt="Carrier" class="tb-ticket-banner-icon">
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
+                            <div class="tb-ticket-banner" style="background: <?php echo $bannerColor; ?>;">
+                                <?php if (!empty($ticket['icon'])): ?>
+                                    <img src="<?php echo esc_url($ticket['icon']); ?>" alt="Carrier" class="tb-ticket-banner-icon">
+                                <?php endif; ?>
+                            </div>
                             <div class="tb-ticket-left">
                                 <div class="tb-ticket-route">
                                     <div class="tb-ticket-station">
@@ -229,12 +229,15 @@ if (!function_exists('trailblazer_render_html')) {
                                         </div>
                                     <?php endif; ?>
                                 </div>
+                                <?php if (!empty($ticket['quote'])): ?>
+                                    <div class="tb-ticket-quote-section">
+                                        <div class="tb-ticket-quote-label">Quote</div>
+                                        <div class="tb-ticket-quote-content">"<?php echo htmlspecialchars($ticket['quote']); ?>"</div>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <div class="tb-ticket-divider"></div>
-                            <div class="tb-ticket-right">
-                                <?php if (!empty($ticket['quote'])): ?>
-                                    <div class="tb-ticket-quote">"<?php echo htmlspecialchars($ticket['quote']); ?>"</div>
-                                <?php endif; ?>
+                            <div class="tb-ticket-right" <?php echo $rightStyle; ?>>
                                 <?php if (!empty($ticket['weather']) || !empty($ticket['mood'])): ?>
                                     <div class="tb-ticket-meta">
                                         <?php if (!empty($ticket['weather'])): ?>

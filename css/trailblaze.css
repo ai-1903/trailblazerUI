@@ -332,15 +332,20 @@ a.tb-ticket,
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(128, 128, 128, 0.15);
-  border-radius: 16px;
-  overflow: visible;
+  border-radius: 18px;
+  overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  min-height: 240px;
 }
 
 .tb-ticket:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tb-ticket:hover .tb-ticket-right::before {
+  filter: saturate(1);
 }
 
 .tb-ticket-banner {
@@ -352,7 +357,8 @@ a.tb-ticket,
   display: flex;
   align-items: center;
   padding-left: 20px;
-  border-radius: 16px 16px 0 0;
+  border-radius: 18px 18px 0 0;
+  z-index: 1;
 }
 
 .tb-ticket-banner-icon {
@@ -388,10 +394,12 @@ a.tb-ticket,
 
 .tb-ticket-left {
   flex: 2;
-  padding: 44px 32px 24px;
+  padding: 52px 32px 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .tb-ticket-route {
@@ -465,6 +473,28 @@ a.tb-ticket,
   color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));
 }
 
+.tb-ticket-quote-section {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.tb-ticket-quote-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50));
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.tb-ticket-quote-content {
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-71));
+  line-height: 1.5;
+}
+
 .tb-ticket-divider {
   position: relative;
   right: -32px;
@@ -496,13 +526,30 @@ a.tb-ticket,
 
 .tb-ticket-right {
   flex: 1;
-  padding: 44px 24px 24px;
+  padding: 52px 24px 28px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 12px;
   text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.tb-ticket-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right, transparent 0%, rgba(128, 128, 128, 0.12) 100%), var(--ticket-bg-img, none);
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.2);
+  transition: filter 0.3s ease;
+  z-index: -1;
 }
 
 .tb-ticket-quote {
