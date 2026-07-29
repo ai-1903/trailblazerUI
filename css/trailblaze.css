@@ -299,8 +299,243 @@
 .tb-section-title {
   font-size: 36px;
   font-weight: 900;
-  margin-bottom: 0;
+  margin-bottom: 40px;
   letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.tb-tickets-section {
+  margin-bottom: 80px;
+}
+
+.tb-tickets-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tb-ticket {
+  position: relative;
+  display: flex;
+  background: var(--card-bg, rgba(var(--adt-colorBoard-White) / var(--adt-colorAlpha-71)));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(128, 128, 128, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.tb-ticket:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tb-ticket::before,
+.tb-ticket::after {
+  content: '';
+  position: absolute;
+  right: 33.33%;
+  width: 20px;
+  height: 20px;
+  background: var(--adt-colorBoard-Background, #f5f5f7);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+[data-color-mode="dark"] .tb-ticket::before,
+[data-color-mode="dark"] .tb-ticket::after {
+  background: var(--adt-colorBoard-Background, #0d0d0e);
+}
+
+.tb-ticket::before {
+  top: -10px;
+}
+
+.tb-ticket::after {
+  bottom: -10px;
+}
+
+.tb-ticket-left {
+  flex: 2;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tb-ticket-route {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tb-ticket-station {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tb-ticket-station-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));
+}
+
+.tb-ticket-station-code {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50));
+  text-transform: uppercase;
+}
+
+.tb-ticket-arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 2px;
+  background: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-24));
+  position: relative;
+}
+
+.tb-ticket-arrow::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: -4px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-24));
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.tb-ticket-info {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.tb-ticket-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tb-ticket-info-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tb-ticket-info-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-100));
+}
+
+.tb-ticket-divider {
+  position: relative;
+  right: -32px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 10%,
+    rgba(128, 128, 128, 0.2) 10%,
+    rgba(128, 128, 128, 0.2) 20%,
+    transparent 20%,
+    transparent 30%,
+    rgba(128, 128, 128, 0.2) 30%,
+    rgba(128, 128, 128, 0.2) 40%,
+    transparent 40%,
+    transparent 50%,
+    rgba(128, 128, 128, 0.2) 50%,
+    rgba(128, 128, 128, 0.2) 60%,
+    transparent 60%,
+    transparent 70%,
+    rgba(128, 128, 128, 0.2) 70%,
+    rgba(128, 128, 128, 0.2) 80%,
+    transparent 80%,
+    transparent 90%,
+    rgba(128, 128, 128, 0.2) 90%,
+    rgba(128, 128, 128, 0.2) 100%
+  );
+}
+
+.tb-ticket-right {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.tb-ticket-quote {
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-71));
+  line-height: 1.6;
+}
+
+.tb-ticket-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50));
+}
+
+.tb-ticket-stamp {
+  width: 48px;
+  height: 48px;
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
+@media (max-width: 850px) {
+  .tb-ticket {
+    flex-direction: column;
+  }
+
+  .tb-ticket::before,
+  .tb-ticket::after {
+    display: none;
+  }
+
+  .tb-ticket-divider {
+    display: none;
+  }
+
+  .tb-ticket-left {
+    padding: 20px;
+  }
+
+  .tb-ticket-right {
+    padding: 20px;
+    border-top: 1px dashed rgba(128, 128, 128, 0.2);
+  }
+
+  .tb-ticket-route {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .tb-ticket-arrow {
+    transform: rotate(90deg);
+    width: 30px;
+  }
+
+  .tb-ticket-station-name {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 850px) {

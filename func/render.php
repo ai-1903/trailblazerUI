@@ -158,6 +158,94 @@ if (!function_exists('trailblazer_render_html')) {
                 </div>
             </div>
             <?php endif; ?>
+
+            <?php if (!empty($data['tickets'])): ?>
+            <div class="tb-tickets-section">
+                <h2 class="tb-section-title"><?php echo htmlspecialchars($data['nextDestinations']['tag'] ?? '旅程记录'); ?></h2>
+                <div class="tb-tickets-grid">
+                    <?php foreach (($data['tickets'] ?? []) as $ticket): ?>
+                        <?php
+                        $ticketTag = !empty($ticket['link']) ? 'a' : 'div';
+                        $ticketAttr = !empty($ticket['link']) ? 'href="' . esc_url($ticket['link']) . '" target="_blank" rel="noopener"' : '';
+                        ?>
+                        <<?php echo $ticketTag; ?> class="tb-ticket" <?php echo $ticketAttr; ?>>
+                            <div class="tb-ticket-left">
+                                <div class="tb-ticket-route">
+                                    <div class="tb-ticket-station">
+                                        <div class="tb-ticket-station-name"><?php echo htmlspecialchars($ticket['from'] ?? ''); ?></div>
+                                        <?php if (!empty($ticket['from_IATA'])): ?>
+                                            <div class="tb-ticket-station-code"><?php echo htmlspecialchars($ticket['from_IATA']); ?></div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="tb-ticket-arrow"></div>
+                                    <div class="tb-ticket-station">
+                                        <div class="tb-ticket-station-name"><?php echo htmlspecialchars($ticket['to'] ?? ''); ?></div>
+                                        <?php if (!empty($ticket['to_IATA'])): ?>
+                                            <div class="tb-ticket-station-code"><?php echo htmlspecialchars($ticket['to_IATA']); ?></div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="tb-ticket-info">
+                                    <?php if (!empty($ticket['Date'])): ?>
+                                        <div class="tb-ticket-info-item">
+                                            <div class="tb-ticket-info-label">Date</div>
+                                            <div class="tb-ticket-info-value"><?php echo htmlspecialchars($ticket['Date']); ?></div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($ticket['goTime']) || !empty($ticket['arvTime'])): ?>
+                                        <div class="tb-ticket-info-item">
+                                            <div class="tb-ticket-info-label">Time</div>
+                                            <div class="tb-ticket-info-value">
+                                                <?php echo htmlspecialchars($ticket['goTime'] ?? ''); ?>
+                                                <?php if (!empty($ticket['goTime']) && !empty($ticket['arvTime'])): ?>-<?php endif; ?>
+                                                <?php echo htmlspecialchars($ticket['arvTime'] ?? ''); ?>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($ticket['Number'])): ?>
+                                        <div class="tb-ticket-info-item">
+                                            <div class="tb-ticket-info-label">Flight/Train</div>
+                                            <div class="tb-ticket-info-value"><?php echo htmlspecialchars($ticket['Number']); ?></div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($ticket['Seat'])): ?>
+                                        <div class="tb-ticket-info-item">
+                                            <div class="tb-ticket-info-label">Seat</div>
+                                            <div class="tb-ticket-info-value"><?php echo htmlspecialchars($ticket['Seat']); ?></div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($ticket['Class'])): ?>
+                                        <div class="tb-ticket-info-item">
+                                            <div class="tb-ticket-info-label">Class</div>
+                                            <div class="tb-ticket-info-value"><?php echo htmlspecialchars($ticket['Class']); ?></div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="tb-ticket-divider"></div>
+                            <div class="tb-ticket-right">
+                                <?php if (!empty($ticket['quote'])): ?>
+                                    <div class="tb-ticket-quote">"<?php echo htmlspecialchars($ticket['quote']); ?>"</div>
+                                <?php endif; ?>
+                                <?php if (!empty($ticket['weather']) || !empty($ticket['mood'])): ?>
+                                    <div class="tb-ticket-meta">
+                                        <?php if (!empty($ticket['weather'])): ?>
+                                            <span>☀️ <?php echo htmlspecialchars($ticket['weather']); ?></span>
+                                        <?php endif; ?>
+                                        <?php if (!empty($ticket['mood'])): ?>
+                                            <span>💭 <?php echo htmlspecialchars($ticket['mood']); ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (!empty($ticket['Stamp'])): ?>
+                                    <img src="<?php echo esc_url($ticket['Stamp']); ?>" alt="Stamp" class="tb-ticket-stamp">
+                                <?php endif; ?>
+                            </div>
+                        </<?php echo $ticketTag; ?>>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php endif; ?>
         </div>
         <?php
         return ob_get_clean();

@@ -22,5 +22,43 @@
         "isActive": false
       }
     ]
-  }
+  },
+  "tickets": [
+    {
+      "from": "北京首都T3",
+      "to": "哈尔滨太平 T2",
+      "from_IATA": "PEK",
+      "to_IATA": "HRB",
+      "Number": "CA-1603",
+      "Seat": "25L",
+      "Class": "P",
+      "img": "/img/demo.jpg",
+      "Date": "2024-10-06",
+      "goTime": "10:00",
+      "arvTime": "12:00",
+      "weather": "晴天",
+      "mood": "不舍",
+      "quote": "返校啦，开学啦。",
+      "Stamp": "/img/stamo.svg",
+      "link": ""
+    },
+    {
+      "from": "北京朝阳",
+      "to": "哈尔滨西",
+      "from_IATA": "",
+      "to_IATA": "",
+      "Number": "G906",
+      "Seat": "03A",
+      "Class": "二等座",
+      "img": "/img/demo.png",
+      "Date": "2024-10-06",
+      "goTime": "10:00",
+      "arvTime": "12:00",
+      "weather": "晴天",
+      "mood": "不舍",
+      "quote": "返校啦，开学啦。",
+      "Stamp": "/img/stamp.svg",
+      "link": "https://icerya.com"
+    }
+  ]
 }
