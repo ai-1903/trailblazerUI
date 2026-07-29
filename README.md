@@ -9,6 +9,7 @@
 ## 特性
 
 - **🍎 Apple 美学** — 毛玻璃大卡片、灵动岛胶囊、SF Mono 数字、果味渐变进度条
+- **🎫 旅行车票** — 精美车票样式卡片，半圆裁切、虚线分隔、承运商 Banner
 - **🌗 亮/暗双模式** — CSS 变量驱动，无缝适配系统主题
 - **📊 数据驱动** — JSON 配置文件，更新数据无需改代码
 - **🔌 即插即用** — 独立 PHP 页面只需一行 `include`，WordPress 支持短代码 `[my_trailblaze]`
@@ -23,13 +24,16 @@
 trailblazerUI/
 ├── css/
 │   ├── color-board.css      # 设计令牌：色板变量 + 亮/暗模式
-│   └── trailblaze.css       # 主 UI 样式
+│   └── trailblaze.css       # 主 UI 样式（Dashboard + 车票模块）
 ├── func/
 │   ├── render.php           # 渲染引擎
 │   ├── connector.php        # 独立 PHP 连接器
 │   └── wp_connector.php     # WordPress 连接器
 ├── data/
 │   └── trailblaze.json      # 行程数据配置
+├── img/
+│   └── ...                  # 图片资源（封面、图标、印章等）
+├── index.php                # Demo 入口
 ├── README.md
 └── LICENSE
 ```
@@ -86,39 +90,77 @@ require_once get_stylesheet_directory() . '/AirDesign/trailblazerUI/func/wp_conn
 
 编辑 `data/trailblaze.json` 即可更新展示内容：
 
+### 整体结构
+
 ```json
 {
-  "stats": {
-    "cities": 8,
-    "countries": 3,
-    "distance": "42,180"
-  },
-  "unlockedCities": [
-    "日本 东京", "韩国 首尔", "泰国 曼谷", "..."
-  ],
-  "nextDestinations": {
-    "cover": "/img/next-stop.png",
-    "tag": "星海征途",
-    "plans": [
-      {
-        "country": "冰岛 雷克雅未克",
-        "cities": "极光 · 冰与火之歌",
-        "isActive": true
-      }
-    ]
-  }
+  "stats": { "cities": 8, "countries": 3, "distance": "42,180" },
+  "unlockedCities": [ "日本 东京", "韩国 首尔", "..." ],
+  "nextDestinations": { "cover": "/img/next-cover.jpg", "tag": "星海征途", "plans": [...] },
+  "tickets": [ ... ]
 }
 ```
 
-| 字段 | 说明 |
-|---|---|
-| `stats.cities` | 已访问城市数 |
-| `stats.countries` | 已访问国家数 |
-| `stats.distance` | 累计里程（km） |
-| `unlockedCities` | 已解锁城市名称数组 |
-| `nextDestinations.cover` | 下一站封面图片路径 |
-| `nextDestinations.tag` | 标签文案 |
-| `nextDestinations.plans` | 计划目的地列表，`isActive: true` 高亮该卡片 |
+### Dashboard 数据
+
+| 字段 | 类型 | 说明 |
+|---|---|---|
+| `stats.cities` | number | 已访问城市数 |
+| `stats.countries` | number | 已访问国家数 |
+| `stats.distance` | string | 累计里程（km） |
+| `unlockedCities[]` | string | 已解锁城市名称 |
+| `nextDestinations.cover` | string | 下一站封面图路径 |
+| `nextDestinations.tag` | string | 标签文案（同时也是车票模块标题） |
+| `nextDestinations.plans[].country` | string | 计划目的地名称 |
+| `nextDestinations.plans[].cities` | string | 目的地描述 |
+| `nextDestinations.plans[].isActive` | boolean | 是否高亮当前卡片 |
+
+### 车票模块
+
+```json
+{
+  "tickets": [
+    {
+      "from": "北京首都T3",
+      "to": "哈尔滨太平 T2",
+      "from_IATA": "PEK",
+      "to_IATA": "HRB",
+      "Number": "CA-1603",
+      "Seat": "25L",
+      "Class": "P",
+      "Date": "2024-10-06",
+      "goTime": "10:00",
+      "arvTime": "12:00",
+      "icon": "/img/gh.svg",
+      "color": "34 77 155 / 1",
+      "weather": "晴天",
+      "mood": "不舍",
+      "quote": "一段旅程，一段记忆。",
+      "Stamp": "/img/stamp.svg",
+      "link": "https://example.com"
+    }
+  ]
+}
+```
+
+| 字段 | 类型 | 说明 |
+|---|---|---|
+| `from` / `to` | string | 出发 / 到达站点名 |
+| `from_IATA` / `to_IATA` | string | IATA 代码，空则不显示 |
+| `Number` | string | 航班 / 车次号 |
+| `Seat` | string | 座位号 |
+| `Class` | string | 舱位 / 席别 |
+| `Date` | string | 日期 |
+| `goTime` / `arvTime` | string | 出发 / 到达时间 |
+| `icon` | string | 承运商 logo 路径（Banner 左侧小图标） |
+| `color` | string | Banner 背景色（rgba 格式，如 `"34 77 155 / 1"`） |
+| `weather` | string | 当日天气 |
+| `mood` | string | 心情标签 |
+| `quote` | string | 旅行引言 |
+| `Stamp` | string | 印章图片路径 |
+| `link` | string | 点击卡片跳转链接，空则为不可点击 |
+
+> 所有字段均可为空，卡片不会因数据缺失而异常显示。
 
 ---
 
