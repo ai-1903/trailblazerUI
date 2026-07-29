@@ -174,9 +174,7 @@
 .tb-unlocked-title {
   font-size: 13px;
   font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 12px;
-  background-color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-7));
+  padding: 12px 0;
   color: var(--text-secondary, rgba(var(--adt-colorBoard-Label) / 1));
   text-transform: uppercase;
   letter-spacing: 1px;
