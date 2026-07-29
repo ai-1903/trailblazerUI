@@ -132,11 +132,10 @@ if (!function_exists('trailblazer_render_html')) {
                     <p class="tb-text-desc">列车启程，向着下一目标跃迁中...</p>
                     <div class="tb-divider">
                         <div class="tb-dashed-line"></div>
-                        <iconify-icon icon="mingcute:send-plane-fill"></iconify-icon>
                     </div>
 
                     <div class="tb-unlocked">
-                        <iconify-icon icon="mingcute:send-plane-fill"></iconify-icon><span class="tb-unlocked-title">已解锁星球</span>
+                        <span class="tb-unlocked-title"><iconify-icon icon="mingcute:send-plane-fill"></iconify-icon>已解锁星球</span>
                         <div class="tb-city-pills">
                             <?php foreach (($data['unlockedCities'] ?? []) as $city): ?>
                                 <span class="city-pill"><iconify-icon icon="mingcute:location-2-line"></iconify-icon> <?php echo htmlspecialchars($city); ?></span>
