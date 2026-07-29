@@ -66,7 +66,7 @@
 
 .tb-progress-bar-fill {
   height: 100%;
-  background-color: var(--adt-colorBoard-Green);
+  background-color: rgba(var(--adt-colorBoard-Green));
   border-radius: 10px;
   transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 0 10px rgba(52, 199, 89, 0.4);
