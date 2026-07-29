@@ -135,7 +135,7 @@ if (!function_exists('trailblazer_render_html')) {
                     </div>
 
                     <div class="tb-unlocked">
-                        <span class="tb-unlocked-title"><iconify-icon icon="mingcute:send-plane-fill"></iconify-icon>已解锁星球</span>
+                        <span class="tb-unlocked-title"><iconify-icon icon="mingcute:send-plane-fill"></iconify-icon> 已解锁星球</span>
                         <div class="tb-city-pills">
                             <?php foreach (($data['unlockedCities'] ?? []) as $city): ?>
                                 <span class="city-pill"><iconify-icon icon="mingcute:location-2-line"></iconify-icon> <?php echo htmlspecialchars($city); ?></span>
