@@ -71,11 +71,6 @@ if (!function_exists('trailblazer_smart_img')) {
             ? $cleanUrl
             : rtrim($baseUrl, '/') . '/' . $cleanUrl;
 
-        // 深色模式：自动探测 -dark 后缀（SVG 跳过）
-        if ($theme === 'dark' && !preg_match('/\.svg$/i', $finalUrl)) {
-            $finalUrl = preg_replace('/(\.[a-zA-Z0-9]+)$/', '-dark$1', $finalUrl);
-        }
-
         return $finalUrl;
     }
 }
