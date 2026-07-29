@@ -167,8 +167,16 @@ if (!function_exists('trailblazer_render_html')) {
                         <?php
                         $ticketTag = !empty($ticket['link']) ? 'a' : 'div';
                         $ticketAttr = !empty($ticket['link']) ? 'href="' . esc_url($ticket['link']) . '" target="_blank" rel="noopener"' : '';
+                        $bannerColor = !empty($ticket['color']) ? 'rgba(' . $ticket['color'] . ')' : 'rgba(128, 128, 128, 0.1)';
                         ?>
                         <<?php echo $ticketTag; ?> class="tb-ticket" <?php echo $ticketAttr; ?>>
+                            <?php if (!empty($ticket['icon']) || !empty($ticket['color'])): ?>
+                                <div class="tb-ticket-banner" style="background: <?php echo $bannerColor; ?>;">
+                                    <?php if (!empty($ticket['icon'])): ?>
+                                        <img src="<?php echo esc_url($ticket['icon']); ?>" alt="Carrier" class="tb-ticket-banner-icon">
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
                             <div class="tb-ticket-left">
                                 <div class="tb-ticket-route">
                                     <div class="tb-ticket-station">
@@ -230,10 +238,10 @@ if (!function_exists('trailblazer_render_html')) {
                                 <?php if (!empty($ticket['weather']) || !empty($ticket['mood'])): ?>
                                     <div class="tb-ticket-meta">
                                         <?php if (!empty($ticket['weather'])): ?>
-                                            <span>☀️ <?php echo htmlspecialchars($ticket['weather']); ?></span>
+                                            <span><iconify-icon icon="fluent:weather-sunny-24-filled"></iconify-icon> <?php echo htmlspecialchars($ticket['weather']); ?></span>
                                         <?php endif; ?>
                                         <?php if (!empty($ticket['mood'])): ?>
-                                            <span>💭 <?php echo htmlspecialchars($ticket['mood']); ?></span>
+                                            <span><iconify-icon icon="fluent:emoji-24-filled"></iconify-icon> <?php echo htmlspecialchars($ticket['mood']); ?></span>
                                         <?php endif; ?>
                                     </div>
                                 <?php endif; ?>

@@ -32,6 +32,8 @@
       "Number": "CA-1603",
       "Seat": "25L",
       "Class": "P",
+      "icon": "/img/gh.svg",
+      "color": "34 77 155 / 1",
       "img": "/img/demo.jpg",
       "Date": "2024-10-06",
       "goTime": "10:00",
@@ -39,7 +41,7 @@
       "weather": "晴天",
       "mood": "不舍",
       "quote": "返校啦，开学啦。",
-      "Stamp": "/img/stamo.svg",
+      "Stamp": "/img/stamp.svg",
       "link": ""
     },
     {
@@ -50,6 +52,8 @@
       "Number": "G906",
       "Seat": "03A",
       "Class": "二等座",
+      "icon": "/img/zgtl.svg",
+      "color": "128 128 128 / 0.15",
       "img": "/img/demo.png",
       "Date": "2024-10-06",
       "goTime": "10:00",

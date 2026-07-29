@@ -308,6 +308,10 @@
   margin-bottom: 80px;
 }
 
+.tb-tickets-section a {
+  text-decoration: none;
+}
+
 .tb-tickets-grid {
   display: flex;
   flex-direction: column;
@@ -324,7 +328,7 @@
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(128, 128, 128, 0.15);
   border-radius: 16px;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
@@ -334,11 +338,29 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
+.tb-ticket-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px 16px 0 0;
+}
+
+.tb-ticket-banner-icon {
+  height: 14px;
+  width: auto;
+  opacity: 0.9;
+}
+
 .tb-ticket::before,
 .tb-ticket::after {
   content: '';
   position: absolute;
-  right: 33.33%;
+  right: calc(33.33% - 10px);
   width: 20px;
   height: 20px;
   background: var(--adt-colorBoard-Background, #f5f5f7);
@@ -352,16 +374,16 @@
 }
 
 .tb-ticket::before {
-  top: -10px;
+  top: calc(50% - 10px);
 }
 
 .tb-ticket::after {
-  bottom: -10px;
+  display: none;
 }
 
 .tb-ticket-left {
   flex: 2;
-  padding: 24px 32px;
+  padding: 44px 32px 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -469,7 +491,7 @@
 
 .tb-ticket-right {
   flex: 1;
-  padding: 24px;
+  padding: 44px 24px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -490,6 +512,11 @@
   gap: 12px;
   font-size: 12px;
   color: rgba(var(--adt-colorBoard-Label) / var(--adt-colorAlpha-50));
+  align-items: center;
+}
+
+.tb-ticket-meta iconify-icon {
+  font-size: 16px;
 }
 
 .tb-ticket-stamp {
@@ -504,9 +531,11 @@
     flex-direction: column;
   }
 
-  .tb-ticket::before,
-  .tb-ticket::after {
-    display: none;
+  .tb-ticket::before {
+    right: 50%;
+    top: auto;
+    bottom: calc(33.33% - 10px);
+    transform: translateX(50%);
   }
 
   .tb-ticket-divider {
@@ -514,7 +543,7 @@
   }
 
   .tb-ticket-left {
-    padding: 20px;
+    padding: 32px 20px 20px;
   }
 
   .tb-ticket-right {
@@ -535,6 +564,14 @@
 
   .tb-ticket-station-name {
     font-size: 20px;
+  }
+
+  .tb-ticket-info {
+    gap: 16px;
+  }
+
+  .tb-ticket-banner-icon {
+    height: 12px;
   }
 }
 
