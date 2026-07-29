@@ -111,64 +111,10 @@
 }
 
 
-/* ========== Scrollbar (WebKit / Chromium / Opera / Safari / Edge) ========== */
-
-/* 滚动条整体尺寸 */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 10px;
-}
-
-/* 滚动槽（滑槽背景） */
-::-webkit-scrollbar-track-piece {
-    background-color: var(--theme-palette-color-48);
-    /* 滑槽颜色 */
-    border-radius: 0;
-}
-
-/* 滚动条滑块（默认） */
-::-webkit-scrollbar-thumb {
-    background-color: var(--theme-palette-color-53);
-    /* 滑块颜色 */
-    min-height: 50px;
-    outline: 0 solid transparent;
-    outline-offset: -2px;
-    border-radius: 0;
-    border: 2px solid transparent;
-    transition: background-color 0.4s ease;
-}
-
-/* 滚动条滑块（hover） */
-::-webkit-scrollbar-thumb:hover {
-    background-color: var(--theme-palette-color-22);
-    /* hover 颜色 */
-}
-
-/* ========== Scrollbar (Firefox) ========== */
-
-* {
-    scrollbar-width: thin;
-    /* auto | thin | none */
-    scrollbar-color:
-        var(--theme-palette-color-53)
-        /* 滑块 */
-        var(--theme-palette-color-48);
-    /* 滑槽 */
-}
-
-/* ========== IE (不推荐，仅兜底) ========== */
-
-body {
-    scrollbar-face-color: var(--theme-palette-color-53);
-    scrollbar-track-color: var(--theme-palette-color-48);
-}
-
-
-/*部分 WP 自定义修改失效的内容：
+/*部分 WP Blocksy 自定义修改失效的内容：
  * 1. 侧边栏宽度
- * 2. Cookie 取消按钮颜色无法变更
- * 3. 分割线颜色
- * 4. 表格颜色
+ * 2. 分割线颜色
+ * 3. 表格颜色
  * */
 
 /* 侧边栏宽度 */
@@ -180,14 +126,6 @@ body {
     --sidebar-order: -1;
     --grid-template-columns: var(--sidebar-width, 24%) minmax(100px, 1fr);
 }*/
-
-/* 取消按钮强制修复 */
-.cookie-notification .ct-cookies-decline-button {
-    --theme-button-text-initial-color: var(--theme-palette-color-54);
-    --theme-button-text-hover-color: var(--theme-palette-color-58);
-    --theme-button-background-initial-color: var(--theme-palette-color-47);
-    --theme-button-background-hover-color: var(--theme-palette-color-48);
-}
 
 
 /* 表格颜色 */
@@ -224,34 +162,6 @@ samp {
     max-width: 750px;
     margin-left: auto;
     margin-right: auto;
-}
-
- .cookie-notification[data-type=type-1] .container {
-    background: var(--theme-palette-color-9) !important;
-    border-top: 0.5px solid var(--theme-palette-color-10) !important;
-    backdrop-filter: saturate(180%) blur(23px) !important;
-    -webkit-backdrop-filter: saturate(180%) blur(23px) !important;
-}
-
-@media (max-width: 689.98px) {
-    .cookie-notification[data-type=type-1] {
-        background: var(--theme-palette-color-9) !important;
-        border-top: 0.5px solid var(--theme-palette-color-10) !important;
-        backdrop-filter: saturate(180%) blur(23px) !important;
-        -webkit-backdrop-filter: saturate(180%) blur(23px) !important;
-    }
-}
-
-@media (min-width: 690px) {
-    .cookie-notification[data-type=type-1] .container {
-        border-radius:24px !important ;
-        background: var(--theme-palette-color-9) !important;
-        border: 0.5px solid var(--theme-palette-color-10) !important;
-    }
-}
-
-.ct-cookies-content {
-    color: var(--theme-palette-color-22);
 }
 
 /* 页脚开启链接下划线 */
