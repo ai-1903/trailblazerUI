@@ -1,2 +1,2 @@
 # trailblazerUI
-An MT Kit showcasing a personal trailblaze journey
+An MT Kit showcasing a personal trailblaze journey.
