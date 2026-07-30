@@ -168,13 +168,15 @@ if (!function_exists('trailblazer_render_html')) {
                         $ticketTag = !empty($ticket['link']) ? 'a' : 'div';
                         $ticketAttr = !empty($ticket['link']) ? 'href="' . esc_url($ticket['link']) . '" target="_blank" rel="noopener"' : '';
                         $bannerColor = !empty($ticket['color']) ? 'rgba(' . $ticket['color'] . ')' : 'rgba(128, 128, 128, 0.07)';
-                        $ticketImg = !empty($ticket['img']) ? esc_url($ticket['img']) : '';
-                        $rightStyle = !empty($ticketImg) ? 'style="--ticket-bg-img: url(' . $ticketImg . ');"' : '';
+                        $ticketIcon = trailblazer_smart_img($ticket['icon'] ?? '', $themeMode, $baseUrl);
+                        $ticketStamp = trailblazer_smart_img($ticket['Stamp'] ?? '', $themeMode, $baseUrl);
+                        $ticketImg = trailblazer_smart_img($ticket['img'] ?? '', $themeMode, $baseUrl);
+                        $rightStyle = !empty($ticketImg) ? 'style="--ticket-bg-img: url(' . esc_url($ticketImg) . ');"' : '';
                         ?>
                         <<?php echo $ticketTag; ?> class="tb-ticket" <?php echo $ticketAttr; ?>>
                             <div class="tb-ticket-banner" style="background: <?php echo $bannerColor; ?>;">
-                                <?php if (!empty($ticket['icon'])): ?>
-                                    <img src="<?php echo esc_url($ticket['icon']); ?>" alt="Carrier" class="tb-ticket-banner-icon">
+                                <?php if (!empty($ticketIcon)): ?>
+                                    <img src="<?php echo esc_url($ticketIcon); ?>" alt="Carrier" class="tb-ticket-banner-icon">
                                 <?php endif; ?>
                             </div>
                             <div class="tb-ticket-left">
@@ -248,8 +250,8 @@ if (!function_exists('trailblazer_render_html')) {
                                         <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
-                                <?php if (!empty($ticket['Stamp'])): ?>
-                                    <img src="<?php echo esc_url($ticket['Stamp']); ?>" alt="Stamp" class="tb-ticket-stamp">
+                                <?php if (!empty($ticketStamp)): ?>
+                                    <img src="<?php echo esc_url($ticketStamp); ?>" alt="Stamp" class="tb-ticket-stamp">
                                 <?php endif; ?>
                             </div>
                         </<?php echo $ticketTag; ?>>
