@@ -1,8 +1,19 @@
+<div align="center">
+
 # trailblazerUI
 
 **An MT Kit showcasing a personal trailblaze journey.**
 
 一个独立、可嵌入的 PHP UI Kit，以 Apple 设计美学呈现个人旅行足迹仪表盘。
+
+[![License](https://img.shields.io/badge/license-APSL--2.0-orange.svg)](LICENSE)
+[![PHP](https://img.shields.io/badge/PHP-7.0+-purple.svg)](https://www.php.net/)
+</div>
+
+## MT Note
+
+> [!CAUTION]
+> 本项目使用 Apple Public Source License 2.0，修改或衍生作品须同样以 APSL-2.0 开源；若发起涉及本代码的专利诉讼，许可证将自动终止。
 
 ---
 
